@@ -141,13 +141,10 @@ Congrats. Now you can try to send your first message to agent. Below Continue wi
 
 ### 6. Configure the OpenAI agent
 
-Next, configure Continue to use your Azure OpenAI deployment. To do so, click on "box" icon:
+Next, configure Continue to use your Azure OpenAI deployment. To do so, click on "box" icon -> select gear icon:
+![alt text](image-9.png)
 
-![alt text](image-6.png)
-
-
-Add the following configuration block (for apiBase and apiKey use values from previously deployed model):
-
+Add GPT model to config:
 ```json
   - name: azure-openai-gpt-5.3-chat
     model: gpt-5.3-chat
@@ -158,22 +155,19 @@ Add the following configuration block (for apiBase and apiKey use values from pr
       apiVersion: 2024-05-01-preview
       deployment: gpt-5.3-chat
       apiType: azure-openai
-
 ```
+
 > [!NOTE]
 > apiBase should be ```https://<some-id>.openai.azure.com/``` not ```https://<some-id>.openai.azure.com/<some-uri>```
 
 Replace `apiBase` with your saved endpoint, `apiKey` with your Azure key, and `model` with your deployed model name. Save the file.
 
+As a result you should got something like this:
+![alt text](image-8.png)
+
+
 ### 7. Verify your setup
 
-Ensure everything is working together in your development environment.
+Ensure how newly deployed model works:
 
-1. Open a project folder in VS Code.
-2. Open the **Continue** panel.
-3. Select either your local Llama model or your Azure OpenAI model.
-4. Ask a test question to verify the integration is successful.
-
----
-
-Would you like me to help draft an introductory tutorial to place before this guide, to better serve users who are entirely new to using a terminal or VS Code?
+![alt text](image-10.png)
