@@ -74,24 +74,40 @@ Next, you will deploy a cloud-based AI model using Azure.
 #### AI Foundry deployment
 
 1. Open Azure Portal → Search Microsoft Foundry → Click Create
+
 ![alt text](<az_00 (1).png>)
+
 2. Configure Basics (Subscription, Resource Group, Name, Region, Project)
+
 ![alt text](<az_00 (3).png>)
+
 3. Start deploy by clicking on "Review + Create" button
-![alt text](<az_00 (2).png>) 
+
+![alt text](<az_00 (2).png>)
+
 4. After deployment complete open resource and click on "Go to Foundry portal"
+
 ![alt text](az.png)
+
 
 #### Model deployment
 
 1. In the Foundry portal, choose "Browse models"
+
 ![alt text](<az_01 (3).png>)
+
 2. Choose a model 
-![alt text](<az_01 (2).png>) 
+
+![alt text](<az_01 (2).png>)
+
 3. Deploy a model (for this demo will be used gpt-5.3-chat)
-![alt text](<az_01 (1).png>) 
+
+![alt text](<az_01 (1).png>)
+
 4. After deployment complete you can select "Playground" section and try promt to the model
-![alt text](<az_01 (5).png>) 
+
+![alt text](<az_01 (5).png>)
+ 
 
 > [!NOTE]
 > Copy model name (gpt-5.3-chat in this demo),Target URI and Key. These values will be used for Agent configuration.
@@ -100,26 +116,35 @@ Next, you will deploy a cloud-based AI model using Azure.
 
 1. Open VS Code and navigate to the **Extensions** view.
 2. Find the **Continue** extension and install it
+
 ![alt text](image.png)
+
 
 
 ### 5. Configure the Ollama agent
 
 To start using Ollama agent you'll need to configure it in Continue. To do so click on "Continue" icon in the left sidebar and then click on the **Local** tab:
+
 ![alt text](image-2.png)
 
+
 Choose Ollama and install default local models:
+
 ![alt text](image-4.png)
+
 
 Congrats. Now you can try to send your first message to agent. Below Continue window main areas overview:
 
 ![alt text](image-7.png)
 
 
+
 ### 6. Configure the OpenAI agent
 
 Next, configure Continue to use your Azure OpenAI deployment. To do so, click on "box" icon:
+
 ![alt text](image-6.png)
+
 
 Add the following configuration block (for apiBase and apiKey use values from previously deployed model):
 
