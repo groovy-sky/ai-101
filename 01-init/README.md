@@ -1,220 +1,154 @@
-# AI 101 – Getting Started
+# AI 101: Getting started
 
 ## Introduction
-This guide provides a simple introduction of Artificial Intelligence and a hands‑on setup of deploying, configuring and using LLM AI.
+
+This guide provides a simple introduction to Artificial Intelligence and a hands‑on tutorial for deploying, configuring, and using a local and cloud-based LLM.
 
 ## Overview
 
-Artificial Intelligence (AI) refers to computer systems designed to perform tasks that normally require human intelligence. These tasks include understanding language, recognizing images, generating content, making predictions, and assisting with decision making.
+Artificial Intelligence (AI) refers to computer systems designed to perform tasks that normally require human intelligence. These tasks include understanding language, recognizing images, generating content, making predictions, and assisting with decision-making.
 
-Modern AI systems are typically powered by **machine learning models**, especially **large language models (LLMs)** trained on large datasets.
+Modern AI systems are typically powered by [machine learning models](https://en.wikipedia.org/wiki/Machine_learning), especially [large language models (LLMs)](https://en.wikipedia.org/wiki/Large_language_model) trained on massive datasets.
 
 ### Common capabilities
 
-- Natural language understanding
-- Text generation
-- Image recognition
-- Code generation
-- Data analysis
-- Conversational assistants
+* Natural language understanding
+* Text generation
+* Image recognition
+* Code generation
+* Data analysis
+* Conversational assistants
 
-### Most Popular models
+### Most popular models
 
 Some widely used AI platforms and tools include:
 
-- **ChatGPT (OpenAI)**
-- **Claude (Anthropic)**
-- **Google Gemini**
-- **GitHub Copilot**
-- **Ollama**
-- **Azure AI Foundry**
+* [ChatGPT (OpenAI)](https://openai.com/chatgpt)
+* [Claude (Anthropic)](https://claude.ai/)
+* [Google Gemini](https://gemini.google.com/)
+* [GitHub Copilot](https://github.com/features/copilot)
+* [Ollama](https://ollama.com/)
+* [Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-studio/)
 
-## Prerequirements
+## Prerequisites
 
-To be able to follow this document, you will need **Active Azure subscription** and Admin rights on your PC. 
+To successfully follow this document, you need an [Active Azure subscription](https://azure.microsoft.com/en-us/free/) and administrator rights on your PC.
 
+## Setup deployment
 
-## Setup Deployment
+Follow this structural roadmap to configure your environment:
 
-Environment setup order:
 1. Install Ollama
 2. Install Visual Studio Code
-3. Create Azure AI Foundry and Deploy a Model in it
-4. Install Continue Extension in VS Code
-5. Configure Ollama agent
-6. Configure GPT agent
-7. Result
+3. Create Azure AI Foundry and deploy a model
+4. Install the Continue extension in VS Code
+5. Configure the Ollama agent
+6. Configure the OpenAI agent
+7. Verify your setup
 
-### Install Ollama
+---
 
-Ollama allows running AI models locally on your machine.
+### 1. Install Ollama
 
-1. Visit:
-   
-   https://ollama.com
+Ollama allows you to run AI models locally on your machine.
 
+1. Visit [https://ollama.com](https://ollama.com).
 2. Download the installer for your operating system.
+3. Install Ollama using the provided instructions.
+4. Verify your installation by running this command in your terminal:
 
-3. Install Ollama.
-
-4. Verify installation by running:
-
-```
+```bash
 ollama --version
 ```
 
-5. Pull a model to test:
+### 2. Install Visual Studio Code
 
-```
-ollama run llama3
-```
-
-If the model responds in the terminal, the installation works.
-
----
-
-### Install Visual Studio Code
-
-1. Download VS Code from:
-
-https://code.visualstudio.com
-
+1. Download VS Code from [https://code.visualstudio.com](https://code.visualstudio.com).
 2. Install it using the default options.
-
 3. Launch VS Code.
 
-Recommended extensions:
+### 3. Create Azure AI Foundry and deploy a model
 
-- GitHub Copilot (optional)
-- Continue (installed later)
+Next, you will deploy a cloud-based AI model using Azure.
 
----
+#### AI Foundry deployment
 
-### 4. Create AI Foundry and Deploy a Model
+1. Open Azure Portal → Search Microsoft Foundry → Click Create
+![alt text](<az_00 (1).png>)
+2. Configure Basics (Subscription, Resource Group, Name, Region, Project)
+![alt text](<az_00 (3).png>)
+3. Start deploy by clicking on "Review + Create" button
+![alt text](<az_00 (2).png>) 
+4. After deployment complete open resource and click on "Go to Foundry portal"
+![alt text](az.png)
 
-Now we will deploy an AI model in Azure.
+#### Model deployment
 
-## Create AI Foundry
+1. In the Foundry portal, choose "Browse models"
+![alt text](<az_01 (3).png>)
+2. Choose a model 
+![alt text](<az_01 (2).png>) 
+3. Deploy a model (for this demo will be used gpt-5.3-chat)
+![alt text](<az_01 (1).png>) 
+4. After deployment complete you can select "Playground" section and try promt to the model
+![alt text](<az_01 (5).png>) 
 
-1. Go to the **Azure Portal**
-2. Search for **Azure AI Foundry**
-3. Create a new resource
-4. Select your:
-   - Subscription
-   - Resource Group
-   - Region
+> [!NOTE]
+> Copy model name (gpt-5.3-chat in this demo),Target URI and Key. These values will be used for Agent configuration.
 
-After deployment finishes, open the AI Foundry project.
+### 4. Install the Continue extension in VS Code
 
----
-
-#### Deploy a Model
-
-1. Open **Model Catalog**
-2. Choose a model (example: GPT or similar)
-3. Click **Deploy**
-4. Wait until deployment completes.
-
----
-
-#### Test the Model in Playground
-
-1. Open **Playground**
-2. Select your deployed model
-3. Enter a test prompt such as:
-
-```
-Explain what artificial intelligence is.
-```
-
-4. Verify the model generates a response.
-
----
+1. Open VS Code and navigate to the **Extensions** view.
+2. Find the **Continue** extension and install it
+![alt text](image.png)
 
 
-You will need the following information for later configuration:
+### 5. Configure the Ollama agent
 
-- **Endpoint URL**
-- **Model name / deployment name**
-- **API key**
+To start using Ollama agent you'll need to configure it in Continue. To do so click on "Continue" icon in the left sidebar and then click on the **Local** tab:
+![alt text](image-2.png)
 
----
+Choose Ollama and install default local models:
+![alt text](image-4.png)
 
-### 5. Install Continue Extension in VS Code
+Congrats. Now you can try to send your first message to agent. Below Continue window main areas overview:
 
-Continue is an AI coding assistant extension.
+![alt text](image-7.png)
 
-## Install the extension
 
-1. Open **VS Code**
-2. Go to **Extensions**
-3. Search for:
+### 6. Configure the OpenAI agent
 
-```
-Continue
-```
+Next, configure Continue to use your Azure OpenAI deployment. To do so, click on "box" icon:
+![alt text](image-6.png)
 
-4. Install the extension.
-
----
-
-### Configure Ollama in Continue
-
-Edit the Continue configuration file.
-
-Example configuration:
+Add the following configuration block (for apiBase and apiKey use values from previously deployed model):
 
 ```json
-{
-  "models": [
-    {
-      "title": "Local Llama",
-      "provider": "ollama",
-      "model": "llama3"
-    }
-  ]
-}
+  - name: azure-openai-gpt-5.3-chat
+    model: gpt-5.3-chat
+    provider: azure
+    apiBase: https://<some-id>.openai.azure.com/
+    apiKey: <api-key>
+    env:
+      apiVersion: 2024-05-01-preview
+      deployment: gpt-5.3-chat
+      apiType: azure-openai
+
 ```
+> [!NOTE]
+> apiBase should be ```https://<some-id>.openai.azure.com/``` not ```https://<some-id>.openai.azure.com/<some-uri>```
 
-This connects Continue to the locally running Ollama model.
+Replace `apiBase` with your saved endpoint, `apiKey` with your Azure key, and `model` with your deployed model name. Save the file.
 
----
+### 7. Verify your setup
 
-### 6. Configure OpenAI Agent
-
-Now configure Continue to use your Azure OpenAI deployment.
-
-Example configuration:
-
-```json
-{
-  "models": [
-    {
-      "title": "Azure OpenAI",
-      "provider": "openai",
-      "apiBase": "https://your-resource.openai.azure.com/",
-      "apiKey": "YOUR_API_KEY",
-      "model": "YOUR_MODEL_NAME"
-    }
-  ]
-}
-```
-
-Replace:
-
-- `apiBase` with your endpoint
-- `apiKey` with your Azure key
-- `model` with your deployed model name
-
-Save the configuration.
-
----
-
-### 7. 
-
-Now verify everything works.
+Ensure everything is working together in your development environment.
 
 1. Open a project folder in VS Code.
-2. Open the **Continue panel**.
-3. Ask a question such as:
+2. Open the **Continue** panel.
+3. Select either your local Llama model or your Azure OpenAI model.
+4. Ask a test question to verify the integration is successful.
 
+---
+
+Would you like me to help draft an introductory tutorial to place before this guide, to better serve users who are entirely new to using a terminal or VS Code?
