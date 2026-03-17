@@ -124,19 +124,15 @@ Next, you will deploy a cloud-based AI model using Azure.
 
 ![alt text](image.png)
 
-
-
 ### 5. Configure the Ollama agent
 
 To start using Ollama agent you'll need to configure it in Continue. To do so click on "Continue" icon in the left sidebar and then click on the **Local** tab:
 
 ![alt text](image-2.png)
 
-
 Choose Ollama and install default local models:
 
 ![alt text](image-3.png)
-
 
 After installation completed click "Connect" button. Now you can try to send your first message to agent. Below chat window main areas overview:
 
@@ -146,9 +142,11 @@ After installation completed click "Connect" button. Now you can try to send you
 ### 6. Configure the OpenAI agent
 
 Next, configure Continue to use your Azure OpenAI deployment. To do so, click on "box" icon -> select gear icon:
+
 ![alt text](image-9.png)
 
 You should see something like this:
+
 ![alt text](image-13.png)
 
 Append file with Azure GPT model config:
