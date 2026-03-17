@@ -46,8 +46,6 @@ Follow this structural roadmap to configure your environment:
 6. Configure the OpenAI agent
 7. Verify your setup
 
----
-
 ### 1. Install Ollama
 
 Ollama allows you to run AI models locally on your machine.
@@ -67,28 +65,35 @@ ollama --version
 2. Install it using the default options.
 3. Launch VS Code.
 
+Here main sections VS code overview:
+![alt text](image-11.png)
+
+
 ### 3. Create Azure AI Foundry and deploy a model
 
 Next, you will deploy a cloud-based AI model using Azure.
 
 #### AI Foundry deployment
 
-1. Open Azure Portal → Search Microsoft Foundry → Click Create
+1. Open Azure Portal -> Click "Create a resource" button
+
+![alt text](image-12.png)
+
+2. Search Microsoft Foundry → Click Create
 
 ![alt text](<az_00 (1).png>)
 
-2. Configure Basics (Subscription, Resource Group, Name, Region, Project)
+3. Configure Basics (Subscription, Resource Group, Name, Region, Project Name)
 
 ![alt text](<az_00 (3).png>)
 
-3. Start deploy by clicking on "Review + Create" button
+4. Start deploy by clicking on "Review + Create" button
 
 ![alt text](<az_00 (2).png>)
 
-4. After deployment complete open resource and click on "Go to Foundry portal"
+5. After deployment complete open resource and click on "Go to Foundry portal"
 
 ![alt text](az.png)
-
 
 #### Model deployment
 
@@ -114,8 +119,8 @@ Next, you will deploy a cloud-based AI model using Azure.
 
 ### 4. Install the Continue extension in VS Code
 
-1. Open VS Code and navigate to the **Extensions** view.
-2. Find the **Continue** extension and install it
+1. Open VS Code and navigate to the **Extensions** view(four square symbol).
+2. Find the **Continue** extension and install it.
 
 ![alt text](image.png)
 
@@ -130,13 +135,12 @@ To start using Ollama agent you'll need to configure it in Continue. To do so cl
 
 Choose Ollama and install default local models:
 
-![alt text](image-4.png)
+![alt text](image-3.png)
 
 
-Congrats. Now you can try to send your first message to agent. Below Continue window main areas overview:
+After installation completed click "Connect" button. Now you can try to send your first message to agent. Below chat window main areas overview:
 
 ![alt text](image-7.png)
-
 
 
 ### 6. Configure the OpenAI agent
@@ -144,7 +148,10 @@ Congrats. Now you can try to send your first message to agent. Below Continue wi
 Next, configure Continue to use your Azure OpenAI deployment. To do so, click on "box" icon -> select gear icon:
 ![alt text](image-9.png)
 
-Add GPT model to config:
+You should see something like this:
+![alt text](image-13.png)
+
+Append file with Azure GPT model config:
 ```json
   - name: azure-openai-gpt-5.3-chat
     model: gpt-5.3-chat
@@ -163,11 +170,17 @@ Add GPT model to config:
 Replace `apiBase` with your saved endpoint, `apiKey` with your Azure key, and `model` with your deployed model name. Save the file.
 
 As a result you should got something like this:
+
 ![alt text](image-8.png)
 
-
+> [!NOTE]
+> To save changes in config.yaml file use the shortcut Ctrl+S for Windows/Linux and Cmd + S for Mac
 ### 7. Verify your setup
 
 Ensure how newly deployed model works:
 
 ![alt text](image-10.png)
+
+
+## Summary
+In this guide, you set up a complete environment for working with AI models (local and cloud-based). Next time will take a look on prompt basics.
