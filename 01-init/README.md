@@ -1,4 +1,6 @@
-# AI 101: Initial Setup
+# AI 101: Initial Setup (part 1)
+
+![alt text](../logo.png)
 
 ## Introduction
 
