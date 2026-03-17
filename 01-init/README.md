@@ -1,39 +1,15 @@
-# AI 101: Getting started
+# AI 101: Initial Setup
 
 ## Introduction
 
-This guide provides a simple introduction to Artificial Intelligence and a hands‑on tutorial for deploying, configuring, and using a local and cloud-based LLM.
+This guide provides a hands-on tutorial for deploying, configuring, and using local and cloud-based Large Language Models (LLMs). By the end of this tutorial, you will have a functional AI development environment using Ollama, Azure AI Foundry, and Visual Studio Code.
 
-## Overview
+## Before you begin
 
-Artificial Intelligence (AI) refers to computer systems designed to perform tasks that normally require human intelligence. These tasks include understanding language, recognizing images, generating content, making predictions, and assisting with decision-making.
-
-Modern AI systems are typically powered by [machine learning models](https://en.wikipedia.org/wiki/Machine_learning), especially [large language models (LLMs)](https://en.wikipedia.org/wiki/Large_language_model) trained on massive datasets.
-
-### Common capabilities
-
-* Natural language understanding
-* Text generation
-* Image recognition
-* Code generation
-* Data analysis
-* Conversational assistants
-
-### Most popular models
-
-Some widely used AI platforms and tools include:
-
-* [ChatGPT (OpenAI)](https://openai.com/chatgpt)
-* [Claude (Anthropic)](https://claude.ai/)
-* [Google Gemini](https://gemini.google.com/)
-* [GitHub Copilot](https://github.com/features/copilot)
-* [Ollama](https://ollama.com/)
-* [Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-studio/)
-
-## Prerequisites
-
-To successfully follow this document, you need an [Active Azure subscription](https://azure.microsoft.com/en-us/free/) and administrator rights on your PC.
-
+To complete this tutorial, ensure you have the following:
+* Azure Subscription: An active Azure subscription with permissions to create resources.
+* System Access: Administrator rights on your local machine.
+* Baseline Knowledge: Familiarity with using a terminal/command prompt.
 ## Setup deployment
 
 Follow this structural roadmap to configure your environment:
@@ -181,4 +157,6 @@ Ensure how newly deployed model works:
 
 
 ## Summary
-In this guide, you set up a complete environment for working with AI models (local and cloud-based). Next time will take a look on prompt basics.
+
+You have successfully configured a hybrid AI environment that balances local privacy with cloud power. 
+To maximize the utility of these models, review the upcoming guide on Prompt Engineering Basics to learn about system prompts and few-shot prompting.
