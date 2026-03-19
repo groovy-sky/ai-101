@@ -4,199 +4,116 @@
 
 ## Introduction
 
-In the previous guide, you prepared your environment for working with AI models using both local and cloud deployments. In this section, you focus on the basics of prompting. You will learn how to communicate effectively with AI models to obtain useful and structured responses.
+In [the previous guide](../01-init/README.md), you prepared your environment for working with AI models using both local and cloud deployments. In this section, you focus on the basics of prompting. You will learn how to communicate effectively with AI models to obtain useful and structured responses.
+
+## Overview
 
 Prompting is a practical skill that allows you to guide AI behavior by providing clear instructions, context, and examples.
 
 Understanding this matters because it shows how AI interprets language and meaning. It helps you build practical skills without needing to write code. You will also develop intuition for how large language models organize and structure knowledge. These concepts provide the foundation for working with more advanced AI workflows later on.
 
-## Prompting Theory
+### Main components
 
-Before diving into the practical exercises, it helps to understand the underlying mechanics of effective communication. The transformation of technical documentation from a peripheral support artifact into a core engineering component emphasizes the importance of precision and cognitive alignment. When you prompt an AI, you are applying these same structural methodologies to guide a machine's output.
-The Cognitive Pillars (Prompt Specificity & Instruction)
+### 5C framework prompt
 
-When you write prompts, you are essentially authoring technical instructions for the AI model. The foundational quality of this communication is anchored in the "Five C's" framework: Clarity, Conciseness, Cohesiveness, Completeness, and Correctness.
+A great prompt acts like a contract - a clear set of instructions that tells the AI exactly who to be, what to know, and how to deliver the result. 
 
-* Clarity: Clarity ensures that focus remains on solving the technical problem rather than deciphering ambiguous syntax.
+Prompting requires clear, structured instructions. The **Five C's** framework fits well for that:
 
-* Conciseness: Conciseness serves as a filter for linguistic noise, ensuring that every word performs a functional role.
+* **Clarity** — avoid ambiguous wording.
+* **Conciseness** — remove unnecessary language.
+* **Cohesiveness** — maintain logical progression.
+* **Completeness** — include all required information.
+* **Correctness** — ensure factual and technical accuracy.
 
-* Cohesiveness: Cohesiveness ensures that the logical progression of your prompt mirrors the system or concept being described.
+#### 5C example
 
-* Completeness: Completeness prevents information gaps that can lead to dead-ends in workflows.
+![alt text](image-4.png)
 
-* Correctness: Correctness is the bedrock of technical trust and verification.
+Example of 5C prompt:
 
-### Audience Analysis (Role Prompting)
+> Create a simple, beginner-friendly recipe for lemon garlic pasta. Include the ingredient list, step-by-step instructions, estimated cooking time, and one optional variation. Keep the tone clear, concise, and easy to follow.
 
-Assigning a role to an AI directly mirrors the practice of audience analysis in technical writing. A critical failure in communication often stems from the "Curse of Knowledge," a cognitive bias where an expert author cannot simulate the perspective of a newcomer.
+Matched criterias:
+- **Clarity:** Names the dish and required output sections clearly.
+- **Conciseness:** Uses only the needed details.
+- **Cohesiveness:** Presents the recipe request in a logical order.
+- **Completeness:** Includes dish, audience, format, time, and variation.
+- **Correctness:** Describes a realistic and valid cooking task.
 
-* Using audience "personas" has become a standard practice to humanize these categories and ensure content resonates with specific constraints.
+### Role and Output
 
-* By defining a role, you dictate whether the AI should behave like an expert who values high-information density or a non-specialist who requires significant conceptual grounding.
+5C gives helps to make a really solid prompt. To make it even more efficient you can add Role and Format:
 
-* Audience analysis is the most critical phase of planning, as it determines the depth of detail, vocabulary choice, and structural complexity of the content.
+* **Role**: The persona or expert you want the AI to embody. This tells the model which set of skills, vocabulary, and perspective to apply to your request.
 
-### Structural Discipline (Multi-Step & Iteration)
+* **Format**: The exact way you want the final answer delivered. This could be a bulleted list, a markdown table, a formal email, an essay, or a code block.
 
-Complex prompting requires breaking tasks down into structured workflows. This reflects the adoption of advanced information architectures, such as the Diátaxis framework, which organizes content by user need rather than product feature.
+Adding a Role will give the AI a specific "voice" (making it sound less like a robot and more like a teacher), and adding a Format will guarantee the layout looks exactly the way you want it to on the screen.
 
-* This systematic approach assigns a single intent to each piece of information, preventing the "muddling" of content types that causes confusion.
+#### 5C with Role and Format example
 
-* Historical data indicates that "poor organization" is consistently rated as the top issue in engineering writing, often resulting from a failure to create a detailed outline.
+Updated example looks following:
 
-* By structuring your prompts and using iterative roadmaps, you avoid disorganized narratives and ensure a clear, logical output.
+Act as an experienced culinary instructor who specializes in teaching absolute beginners how to cook.
+Create a simple, beginner-friendly recipe for lemon garlic pasta. Include the ingredient list, step-by-step instructions, estimated cooking time, and one optional variation. Keep the tone clear, concise, and easy to follow.
+Output the recipe using clear Markdown headings. Place the estimated cooking time at the very top. Use a bulleted list with exact measurements for the ingredients, and a numbered list for the step-by-step instructions. Put the optional variation inside a blockquote at the end.
 
-### Machine Readability (Output Formatting)
 
-Understanding how AI processes text helps you format your prompts for optimal results. A transformative shift in technical communication is the emergence of AI agents as a primary audience for documentation.
 
-* Providing structured, machine-readable data simplifies the ingestion process for the "token-based brains" of AI models.
 
-* As the industry moves toward "answer-first" experiences, utilizing generative engine optimization principles ensures greater control over the output.
-
-* This structured approach reduces the risk of AI "hallucinations" and increases the accuracy of the generated responses.
 
 ## Practical exercises
 
-### Understanding prompt specificity
+### Lazy start
 
-**Task**
+https://copilot.microsoft.com/
 
-Give the AI two prompts for the same topic: one vague and one specific.
+![alt text](image-5.png)
 
-> **Example:**
-> 
-> Vague prompt:
-> ```text
-> Explain photosynthesis.
-> ```
-> 
-> Specific prompt:
-> ```text
-> Explain photosynthesis to a 12-year-old using a cooking analogy.
-> ```
+https://gemini.google.com/app
+![alt text](image-6.png)
 
-Compare how the outputs differ in clarity and structure.
 
-### Role prompting
+### Public materials
 
-Assign a role to the AI to guide the perspective of the answer.
+https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering
 
-> **Examples:**
-> - `Act as a physics teacher and explain gravity.`
-> - `Act as a UX designer reviewing a mobile app interface.`
-> - `Act as a cybersecurity expert explaining phishing attacks.`
+https://microsoft.github.io/Workshop-Interact-with-OpenAI-models/
 
-Observe how the role changes the style and depth of the response.
+### Building a personal prompting coach
 
-### Instruction prompting
 
-Rewrite a vague request into a structured instruction.
+```
+You are an AI prompting coach. Your job is to help a learner quickly improve a single prompt they give. Work in English unless the learner requests Latvian. Follow these steps each turn:
 
-Example structure:
-- Goal
-- Constraints
-- Output format
+* Ask one clarifying question only if the learner’s goal or output format is unclear.
 
-> **Example prompt:**
-> ```text
-> Explain how cloud computing works. Use bullet points and include a real-world example.
-> ```
+* Show a concise critique of the learner’s prompt in three concrete points (clarity, constraints, missing context).
 
-### Few-shot prompting
+* Rewrite the prompt into an optimized version (one paragraph, ≤40 words).
 
-Provide examples so the model can learn the desired pattern.
+* Suggest two short alternatives (different tone or constraint, one line each).
 
-> **Example:**
-> 
-> Input: `Good morning` → Output: `Formal greeting`
-> Input: `Thanks a lot` → Output: `Expression of gratitude`
-> 
-> **Prompt:**
-> ```text
-> Classify the phrase: 'See you later'.
-> ```
+* Score the original prompt 1–5 with one-sentence justification.
 
-### Chain-of-thought prompting
+* Require the learner to submit two revisions; after each revision, repeat steps 2–5.
 
-Ask the AI to reason step by step when solving a problem.
+* End with a one-line privacy reminder: do not include sensitive personal data in prompts.
 
-> **Example comparison:**
-> 
-> Prompt 1:
-> ```text
-> Solve this problem.
-> ```
-> 
-> Prompt 2:
-> ```text
-> Solve this problem and explain your reasoning step by step.
-> ```
+Respond only with the requested critique, rewrites, alternatives, score, and the privacy reminder.
+```
 
-Compare the quality of the answers.
+### First prompt
 
-### Prompt iteration
 
-Improve a prompt through multiple revisions.
 
-> **Example progression:**
-> 1. `Write about renewable energy.`
-> 2. `Explain renewable energy sources and their benefits.`
-> 3. `Explain three renewable energy sources, their advantages, and real-world examples using bullet points.`
+![alt text](image-1.png)
 
-### Multi-step prompting
+![alt text](image-2.png)
 
-Break complex tasks into multiple steps.
-
-Example workflow:
-1. Ask the AI to create an outline.
-2. Expand the outline into sections.
-3. Generate the final text.
-
-> **Example prompt:**
-> ```text
-> Create an outline for an article about artificial intelligence in healthcare and then write a short article based on that outline.
-> ```
-
-### Output evaluation
-
-After generating responses, evaluate them based on:
-- Accuracy
-- Clarity
-- Structure
-- Creativity
-
-### Prompt comparison
-
-Write two different prompts for the same task and compare the results.
-
-> **Example task:**
-> `Summarize an article.`
-> 
-> Prompt A:
-> ```text
-> Summarize this text.
-> ```
-> 
-> Prompt B:
-> ```text
-> Summarize this text in five bullet points and highlight the main conclusion.
-> ```
-
-## Building a personal prompt library
-
-Create a collection of prompts you can reuse. Organize them into categories such as:
-- Writing
-- Learning
-- Productivity
-- Creativity
-- Data analysis
+![alt text](image-3.png)
 
 ## Summary
 
 In this section, you practiced several techniques for interacting with AI models effectively. These techniques include prompt specificity, role prompting, structured instructions, few-shot examples, and multi-step workflows. These exercises help build a foundation for using AI tools in real-world scenarios.
-
----
-
-Would you like me to help you draft the next part of this AI 101 course using these same structural guidelines?
