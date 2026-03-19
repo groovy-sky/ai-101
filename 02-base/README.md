@@ -12,11 +12,15 @@ Prompting is a practical skill that allows you to guide AI behavior by providing
 
 Understanding this matters because it shows how AI interprets language and meaning. It helps you build practical skills without needing to write code. You will also develop intuition for how large language models organize and structure knowledge. These concepts provide the foundation for working with more advanced AI workflows later on.
 
-### Main components
+### Main components of a good prompt
 
-### 5C framework prompt
+Crafting an effective prompt is the foundation for getting high-quality, relevant responses from an AI. While simple questions work for basic tasks, structuring your request with these core building blocks will give you much more control over the final output:
 
-A great prompt acts like a contract - a clear set of instructions that tells the AI exactly who to be, what to know, and how to deliver the result. 
+* **Role**: The persona or expert you want the AI to embody. This tells the model which set of skills, vocabulary, and perspective to apply to your request.
+
+* **Output Format**: The exact way you want the final answer delivered. This could be a bulleted list, a markdown table, a formal email, an essay, or a code block.
+
+* **Prompt** itself: a clear set of instructions that tells the AI exactly who to be, what to know, and how to deliver the result. 
 
 Prompting requires clear, structured instructions. The **Five C's** framework fits well for that:
 
@@ -26,42 +30,15 @@ Prompting requires clear, structured instructions. The **Five C's** framework fi
 * **Completeness** — include all required information.
 * **Correctness** — ensure factual and technical accuracy.
 
-#### 5C example
+#### Good prompt example
 
-![alt text](image-4.png)
-
-Example of 5C prompt:
-
-> Create a simple, beginner-friendly recipe for lemon garlic pasta. Include the ingredient list, step-by-step instructions, estimated cooking time, and one optional variation. Keep the tone clear, concise, and easy to follow.
-
-Matched criterias:
-- **Clarity:** Names the dish and required output sections clearly.
-- **Conciseness:** Uses only the needed details.
-- **Cohesiveness:** Presents the recipe request in a logical order.
-- **Completeness:** Includes dish, audience, format, time, and variation.
-- **Correctness:** Describes a realistic and valid cooking task.
-
-### Role and Output
-
-5C gives helps to make a really solid prompt. To make it even more efficient you can add Role and Format:
-
-* **Role**: The persona or expert you want the AI to embody. This tells the model which set of skills, vocabulary, and perspective to apply to your request.
-
-* **Format**: The exact way you want the final answer delivered. This could be a bulleted list, a markdown table, a formal email, an essay, or a code block.
-
-Adding a Role will give the AI a specific "voice" (making it sound less like a robot and more like a teacher), and adding a Format will guarantee the layout looks exactly the way you want it to on the screen.
-
-#### 5C with Role and Format example
-
-Updated example looks following:
+![alt text](prompt.png)
 
 Act as an experienced culinary instructor who specializes in teaching absolute beginners how to cook.
+
 Create a simple, beginner-friendly recipe for lemon garlic pasta. Include the ingredient list, step-by-step instructions, estimated cooking time, and one optional variation. Keep the tone clear, concise, and easy to follow.
+
 Output the recipe using clear Markdown headings. Place the estimated cooking time at the very top. Use a bulleted list with exact measurements for the ingredients, and a numbered list for the step-by-step instructions. Put the optional variation inside a blockquote at the end.
-
-
-
-
 
 ## Practical exercises
 
