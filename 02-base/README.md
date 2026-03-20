@@ -6,7 +6,7 @@
 
 In [the previous guide](../01-init/README.md), you prepared your environment for working with AI models using both local and cloud deployments. In this section, you focus on the basics of prompting. You will learn how to communicate effectively with AI models to obtain useful and structured responses.
 
-## Overview
+## Theory
 
 Prompting is a practical skill that allows you to guide AI behavior by providing clear instructions, context, and examples.
 
@@ -20,7 +20,7 @@ Crafting an effective prompt is the foundation for getting high-quality, relevan
 
 * **Output Format**: The exact way you want the final answer delivered. This could be a bulleted list, a markdown table, a formal email, an essay, or a code block.
 
-* **Prompt** itself: a clear set of instructions that tells the AI exactly who to be, what to know, and how to deliver the result. 
+* **Prompt** itself: a clear set of instructions that tells the AI exactly what to do. 
 
 Prompting requires clear, structured instructions. The **Five C's** framework fits well for that:
 
@@ -32,15 +32,16 @@ Prompting requires clear, structured instructions. The **Five C's** framework fi
 
 #### Good prompt example
 
-![alt text](prompt.png)
+Below an example of prompt for lemon garlic pasta recipe:
 
-Act as an experienced culinary instructor who specializes in teaching absolute beginners how to cook.
-
+> Act as an experienced culinary instructor who specializes in teaching absolute beginners how to cook.
 Create a simple, beginner-friendly recipe for lemon garlic pasta. Include the ingredient list, step-by-step instructions, estimated cooking time, and one optional variation. Keep the tone clear, concise, and easy to follow.
-
 Output the recipe using clear Markdown headings. Place the estimated cooking time at the very top. Use a bulleted list with exact measurements for the ingredients, and a numbered list for the step-by-step instructions. Put the optional variation inside a blockquote at the end.
 
-## Practical exercises
+Main parts:
+![alt text](prompt.png)
+
+## Practise
 
 ### Lazy start
 
@@ -58,9 +59,15 @@ https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineeri
 
 https://microsoft.github.io/Workshop-Interact-with-OpenAI-models/
 
-### Building a personal prompting coach
+### Build your own prompt coach
 
+Use AI itself to improve your prompt skills. Open Foundry portal and choose any model by your choice -> select 'Playground' option. It has following structure:
 
+![alt text](image-9.png)
+
+Your prompt is splited into 2 parts - Instructions and chat itself. In first you can put Agents role and prefferable output format. In chat you can write your request.
+
+No build AI prompt coach copy to "Instructions" section following text:
 ```
 You are an AI prompting coach. Your job is to help a learner quickly improve a single prompt they give. Work in English unless the learner requests Latvian. Follow these steps each turn:
 
@@ -81,13 +88,15 @@ You are an AI prompting coach. Your job is to help a learner quickly improve a s
 Respond only with the requested critique, rewrites, alternatives, score, and the privacy reminder.
 ```
 
-### First prompt
+Now try different prompts:
 
-
+![alt text](image-7.png)
 
 ![alt text](image-1.png)
 
 ![alt text](image-2.png)
+
+### 
 
 ![alt text](image-3.png)
 
