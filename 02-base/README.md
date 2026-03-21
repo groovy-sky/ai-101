@@ -12,6 +12,9 @@ You will learn how to communicate effectively with AI systems and how prompt str
 
 ## AI theory
 
+> [!important]
+> Large language models hallucinate because they are trained to predict plausible continuations from noisy text and are rewarded for guessing rather than admitting uncertainty; that makes them produce confident-sounding but incorrect facts unless explicitly grounded or checked. 
+
 Chat AI systems rely on four core components: **weights, context window, system prompt, and output formatting**.
 
 **Weights** are parameters learned during model training on large datasets such as books, websites, and articles. They encode statistical language patterns used to predict the next token in a sequence.
@@ -46,6 +49,9 @@ Examples include:
 **Stop sequences** can define where the model should stop generating output.
 
 ## AI theory (simplified explanation)
+
+> [!important]
+> Evaluate every AI answer by checking its sources and cross‑verifying key facts.
 
 A simple analogy is to imagine a person who once read almost every book, website, and article in the world. After a major accident, their brain changed in specific ways.
 
@@ -95,6 +101,25 @@ You can also define when the model should stop generating output.
 Example:
 
 > List exactly five items and then stop.
+
+### AI hallucinations
+
+> [!important]
+> Evaluate every AI answer by checking its sources and cross‑verifying key facts.
+
+Because he is a master of patterns, he can be a bit of a "confident idiot"—he sounds like he knows exactly what he’s talking about, even when he’s totally wrong.
+
+Here is why he starts imagining things:
+
+* **He is a Professional Guesser**: His main job is to guess the very next word in a sentence based on the billions of books he read before his crash. If he doesn't know a fact, he doesn't like to stop talking. Instead, he just picks the word that sounds like it fits the pattern best, even if it’s a lie.
+
+* **The Messy Scratchpad**: Remember his "scratchpad" (his short-term memory)? If you give him too much information at once, his notes get messy or blurry. When his scratchpad is 90% full, he starts seeing "ghosts" in his notes and gets confused about what you actually asked him.
+
+* **Forgetting the Middle**: He is very good at remembering the first thing you said and the very last thing you said. But for everything in the middle, his brain can be like a leaky bucket. To fill that empty space in the middle, he "glues" the story together with made-up facts that he thinks you want to hear.
+
+* **He Can't Say "I Don't Know"**: Because of how he was trained, he thinks his job is to always be helpful and keep the conversation going. He’s like a student who didn't study for a test but writes a really long, beautiful essay anyway, hoping the teacher won't notice he's making it all up.
+
+The Golden Rule: **Always check his work!** Even if he says it with a smile and perfect grammar, he might just be having a "messy scratchpad" moment.
 
 ## Prompt theory
 
@@ -178,13 +203,19 @@ These tools can:
 
 ![AI assistant explanation example](image-6.png)
 
-### Public learning resources
+### Online courses
 
-https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/prompt-engineering
+Below are several online courses, workshops, and hands-on learning resources that introduce the fundamentals of prompt engineering. These materials range from short beginner-friendly tutorials to longer structured courses that explore practical prompting techniques, prompt patterns, and real-world AI workflows.
 
-https://microsoft.github.io/Workshop-Interact-with-OpenAI-models/
-
-https://aiskillsnavigator.microsoft.com/explore/search/learningpath-28b43360780055d5153fa2bf38eb8921291405edde596e61d5640f82393ec499
+| Course Name | URL | Short Source Description |
+| :--- | :--- | :--- |
+| **ChatGPT Prompt Engineering for Developers** | [https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/](https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/) | A 1.5-hour technical primer created with OpenAI to teach API-driven tasks like summarizing and inferring. |
+| **Prompt Engineering for ChatGPT (Vanderbilt)** | [https://www.coursera.org/learn/prompt-engineering](https://www.coursera.org/learn/prompt-engineering) | A comprehensive 20-hour program by Dr. Jules White focusing on "prompt patterns" to unlock emergent LLM capabilities. |
+| **ChatGPT for Everyone** | [https://learnprompting.org/courses/chatgpt-for-everyone](https://learnprompting.org/courses/chatgpt-for-everyone) | A 1-hour introductory path covering account setup, basic prompt crafting, and AI safety for beginners. |
+| **Intro to Prompt Engineering (DAIR)** | [https://academy.dair.ai/courses/introduction-prompt-engineering](https://academy.dair.ai/courses/introduction-prompt-engineering) | A 2-hour course with 47 lessons covering few-shot techniques, chain-of-thought, and information extraction. |
+| **Craft effective prompts for M365 Copilot** | [https://learn.microsoft.com/training/paths/craft-effective-prompts-copilot-microsoft-365/](https://learn.microsoft.com/training/paths/craft-effective-prompts-copilot-microsoft-365/) | A 2-hour Microsoft learning path focused on using AI across Word, Excel, PowerPoint, and Outlook. |
+| **GenAI for Higher Education (GalileoX)** | [https://www.edx.org/learn/chatgpt/universidad-galileo-unlocking-the-power-of-generative-ai-with-chatgpt-for-higher-education](https://www.edx.org/learn/chatgpt/universidad-galileo-unlocking-the-power-of-generative-ai-with-chatgpt-for-higher-education) | A 5-week course designed specifically for educators to use AI for curriculum design and student assessments. |
+| **Nir Diamant's Prompt Engineering Repo** | [https://github.com/NirDiamant/prompt_engineering](https://github.com/NirDiamant/prompt_engineering) | An open-source, hands-on repository with 22 Jupyter tutorials covering template engines and agent development. |
 
 ## Build your own prompt coach
 
@@ -215,7 +246,7 @@ You are an AI prompting coach. Your job is to help a learner quickly improve a s
 Respond only with the requested critique, rewrites, alternatives, score, and the privacy reminder.
 ```
 
-Now try different prompts.
+Now try different prompts, till a proper result is achieved.
 
 ![Prompt coach example](image-7.png)
 
@@ -231,3 +262,4 @@ These include prompt specificity, role prompting, structured instructions, and i
 
 These skills form the foundation for using AI tools in real‑world workflows.
 
+And always remmember golden rule of AI - evaluate every AI answer.
