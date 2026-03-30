@@ -3,4 +3,4 @@ version: 0.0.1
 schema: v1
 mcpServers:
   - name: time
-    command: .\tools\bin\time-mcp-windows-amd64.exe
+    command: ./tools/bin/time-mcp-windows-amd64.exe
