@@ -20,8 +20,8 @@ Specifically, you will try:
 
 For MCP part, you will set up two example servers that expose external tools to the AI assistant:
 
-• [**time‑mcp**](./tools/src/time-mcp) — provides system time  
-• [**pwsh‑mcp**](./tools/src/pwsh-mcp) — allows to execute PowerShell commands
+• [**time‑mcp**](../tools/src/time-mcp) — provides system time  
+• [**pwsh‑mcp**](../tools/src/pwsh-mcp) — allows to execute PowerShell commands
 
 These examples illustrate how AI assistants can interact with **real tools instead of only generating text**.
 
@@ -230,14 +230,14 @@ Now just open VS Code -> File -> Open Folder -> select the `ai-101` folder.
 You should get something similar to this:
 ![alt text](image-9.png)
 
-All Continue configuration files are stored inside the [`.continue`](.continue/) directory at the root of the workspace.
+All Continue configuration files are stored inside the [`.continue`](../.continue/) directory at the root of the workspace.
 
 ![alt text](image-14.png)
 
 The main configuration elements are:
-1. "mcpServers" folder stores MCP configurations. In this tutorial 2 MCP servers are configured: [time-mcp](.continue/mcpServers/time-mcp.yaml) and [pwsh-mcp](.continue/mcpServers/pwsh-mcp.yaml)
-2. "prompts" folder stores reusable prompts. In this tutorial 3 prompts are configured: [enchaser](.continue/prompts/enchaser.md) (for improving technical documentation), [reddit](.continue/prompts/reddit.md)(for generating engineering-style Reddit posts), and [shorter](.continue/prompts/shorter.md)(removes non‑essential text). 
-3. "rules" folder stores persistent rules. In this tutorial 1 rule is configured - [powershell](.continue/rules/powershell.md) (defines PowerShell scripting conventions and coding standards applied to .ps1, .psm1, and .psd1 files).
+1. "mcpServers" folder stores MCP configurations. In this tutorial 2 MCP servers are configured: [time-mcp](../.continue/mcpServers/time-mcp.yaml) and [pwsh-mcp](../.continue/mcpServers/pwsh-mcp.yaml)
+2. "prompts" folder stores reusable prompts. In this tutorial 3 prompts are configured: [enchaser](../.continue/prompts/enchaser.md) (for improving technical documentation), [reddit](../.continue/prompts/reddit.md)(for generating engineering-style Reddit posts), and [shorter](../.continue/prompts/shorter.md)(removes non‑essential text). 
+3. "rules" folder stores persistent rules. In this tutorial 1 rule is configured - [powershell](../.continue/rules/powershell.md) (defines PowerShell scripting conventions and coding standards applied to .ps1, .psm1, and .psd1 files).
 
 ## MCP configuration
 
@@ -248,7 +248,7 @@ This tutorial includes two example MCP servers:
 
 Both servers are implemented using the **MCP Go SDK**. Demo implementations uses Windows paths and commands, but you can modify them to run on other platforms.
 
-Modify [time-mcp.yaml](.continue/mcpServers/time-mcp.yaml) and [pwsh-mcp.yaml](.continue/mcpServers/pwsh-mcp.yaml) to point to the correct executable paths on your system:
+Modify [time-mcp.yaml](../.continue/mcpServers/time-mcp.yaml) and [pwsh-mcp.yaml](../.continue/mcpServers/pwsh-mcp.yaml) to point to the correct executable paths on your system:
 
 ![alt text](image-10.png)
 
