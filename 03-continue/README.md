@@ -2,11 +2,16 @@
 
 ![AI 101 Course Logo](../logo.png)
 
-In this tutorial we continue exploring using AI in VS Code. So far we have focused mainly on interacting with the AI through prompts. In this part we move one step further and explore **how to configure and extend the assistant itself**.
+In this tutorial we continue exploring how AI can be integrated into the development workflow inside VS Code.
+So far we focused mainly on interacting with the AI through individual prompts.
 
-You will learn how Continue can be customized using rules, prompts, and external tools. We will also introduce the **Model Context Protocol (MCP)**, a standard architecture that allows AI systems to safely interact with external services.
+However, real development workflows require more than ad‑hoc prompts. Teams often need the AI assistant to:
 
-By the end of this tutorial you will understand how to turn a basic AI assistant into a **tool‑enabled development environment**.
+• follow project conventions
+• reuse common instructions
+• access internal tools and services
+
+In this part we move one step further and explore how to configure and extend the assistant itself so that it behaves consistently across a project.
 
 ## What you will build
 
@@ -25,7 +30,9 @@ For MCP part, you will set up two example servers that expose external tools to 
 
 These examples illustrate how AI assistants can interact with **real tools instead of only generating text**.
 
-## Overview
+## Part 1 – Concepts
+
+### Overview
 
 Continue provides several mechanisms that allow developers to control:
 
@@ -46,7 +53,7 @@ The key elements of the Continue ecosystem are:
 
 Together these components allow developers to control both the **behavior** and the **capabilities** of the AI assistant.
 
-## Continue configuration
+### Continue configuration
 
 The Continue extension can be configured to control how it behaves inside VS Code and what capabilities are available to the AI model.
 
@@ -68,11 +75,12 @@ For example, a team might configure Continue to:
 
 This makes the AI assistant behave more like a **specialized development tool** rather than a generic chatbot.
 
+### Modes
 
+When interacting with the assistant, Continue can operate in several modes.
 
-## Modes
-
-Continue supports several operating modes:
+Each mode defines how much freedom the AI has when interacting with the workspace and external tools.
+This helps balance safety, transparency, and automation during development.
 
 ![alt text](image-12.png)
 
@@ -90,13 +98,13 @@ Typical workflow:
 2. Use **Plan** to explore the codebase and design a solution  
 3. Use **Agent** to implement the changes
 
-## System Rules and Prompts
+### System Rules and Prompts
 
 Continue allows developers to customize AI behavior using **Rules** and **Prompts**.
 
 Although they both influence how the AI responds, they serve different purposes.
 
-### Rules
+#### Rules
 
 Rules are **persistent instructions** added to the AI system context.
 
@@ -111,7 +119,7 @@ Examples of rules:
 
 Rules help enforce **team standards and architectural decisions**.
 
-### Prompts
+#### Prompts
 
 Prompts are **task‑specific instructions** used when performing a particular action.
 
@@ -126,7 +134,7 @@ Typical prompts might include:
 
 Prompts allow teams to standardize common development workflows.
 
-### Rules vs Prompts
+#### Rules vs Prompts
 
 The main difference between rules and prompts is their **scope and persistence**.
 
@@ -139,12 +147,21 @@ Used together, they provide both:
 • **long‑term behavioral guidance**  
 • **short‑term task instructions**
 
+### Model Context Protocol (MCP)
 
+Modern AI assistants are most useful when they can interact with the developer's environment.
 
+For example, an assistant might need to:
 
-## Model Context Protocol (MCP)
+• read files from the project
+• query a database
+• run scripts or automation tools
+• interact with APIs such as GitHub
 
-The **Model Context Protocol (MCP)** is an open standard designed to allow AI models to interact with external systems.
+Without a standard mechanism for these interactions, every AI system would need custom integrations for each tool.
+This quickly becomes difficult to maintain.
+
+The Model Context Protocol (MCP) was designed to solve this problem - it is an open standard designed to allow AI models to interact with external systems.
 
 Instead of embedding integrations directly inside the AI assistant, MCP provides a standardized interface that allows tools to be connected dynamically.
 
@@ -158,13 +175,13 @@ Through MCP, an AI system can interact with:
 
 This allows AI assistants to move beyond simple text generation and perform **real development tasks**.
 
-## MCP Architecture
+### MCP Architecture
 
 MCP uses a **host–client–server architecture** that separates the AI model from the external tools it uses.
 
-![alt text](image-6.png)
+![alt text](image-18.png)
 
-### Host
+#### Host
 
 The **host** is the application where the AI assistant runs.
 
@@ -176,13 +193,13 @@ The host manages:
 • the AI model  
 • security boundaries
 
-### Client
+#### Client
 
 The **client** is the communication layer inside the host.
 
 It translates AI requests into MCP messages and maintains connections to MCP servers.
 
-### Server
+#### Server
 
 An **MCP server** exposes external functionality to the AI assistant.
 
@@ -193,11 +210,9 @@ Examples include services that provide:
 • system utilities  
 • developer tools
 
-### MCP in simple terms
+#### MCP in simple terms
 
-A useful way to think about MCP is:
-
-**MCP is like USB‑C for AI systems.**
+In the same way that USB‑C standardized hardware connectivity, MCP aims to standardize how AI systems connect to tools and services.
 
 Before USB‑C, every device required its own connector or adapter.
 
@@ -213,9 +228,13 @@ MCP standardizes this interaction.
 
 Developers implement an **MCP server once**, and any compatible AI system can use it.
 
-## Continue configuration
+## Part 2 – Practical exercise
 
-Continue can be configured globally or per workspace. I.e., you can have different rules, prompts, and MCP servers for each project.
+### Initial setup
+
+Continue can be configured globally or per workspace. That means each project can use different rules, prompts, and MCP servers. In most teams these configuration files are stored directly in the repository. This ensures that every developer working on the project uses the same AI configuration, including rules, prompts, and available tools.
+
+As a result, the AI assistant becomes part of the development environment itself rather than a personal customization of an individual developer.
 
 For easiest setup, this repository already includes example configuration files for rules, prompts, and MCP servers.
 
@@ -228,6 +247,7 @@ Alternatively, you can git clone the repository:
 Now just open VS Code -> File -> Open Folder -> select the `ai-101` folder.
 
 You should get something similar to this:
+
 ![alt text](image-9.png)
 
 All Continue configuration files are stored inside the [`.continue`](../.continue/) directory at the root of the workspace.
@@ -235,13 +255,22 @@ All Continue configuration files are stored inside the [`.continue`](../.continu
 ![alt text](image-14.png)
 
 The main configuration elements are:
-1. "mcpServers" folder stores MCP configurations. In this tutorial 2 MCP servers are configured: [time-mcp](../.continue/mcpServers/time-mcp.yaml) and [pwsh-mcp](../.continue/mcpServers/pwsh-mcp.yaml)
-2. "prompts" folder stores reusable prompts. In this tutorial 3 prompts are configured: [enchaser](../.continue/prompts/enchaser.md) (for improving technical documentation), [reddit](../.continue/prompts/reddit.md)(for generating engineering-style Reddit posts), and [shorter](../.continue/prompts/shorter.md)(removes non‑essential text). 
-3. "rules" folder stores persistent rules. In this tutorial 1 rule is configured - [powershell](../.continue/rules/powershell.md) (defines PowerShell scripting conventions and coding standards applied to .ps1, .psm1, and .psd1 files).
+1. ".continue/mcpServers" folder stores MCP configurations. In this tutorial 2 MCP servers are configured: [time-mcp](../.continue/mcpServers/time-mcp.yaml) and [pwsh-mcp](../.continue/mcpServers/pwsh-mcp.yaml)
+2. ".continue/prompts" folder stores reusable prompts. In this tutorial 3 prompts are configured: [enchaser](../.continue/prompts/enchaser.md) (for improving technical documentation), [reddit](../.continue/prompts/reddit.md)(for generating engineering-style Reddit posts), and [shorter](../.continue/prompts/shorter.md)(removes non‑essential text). 
+3. ".continue/rules" folder stores persistent rules. In this tutorial 1 rule is configured - [powershell](../.continue/rules/powershell.md) (defines PowerShell scripting conventions and coding standards).
 
-## MCP configuration
+### MCP configuration
+
+#### Prerequisites
+
+Before testing the **pwsh-mcp** server, ensure that **PowerShell** is installed on your system. You can install from official PowerShell page: https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell.
+
+The pwsh-mcp server executes PowerShell commands. If PowerShell is not installed or not available in PATH, these examples will fail.
+
+#### MCP servers used in this tutorial
 
 This tutorial includes two example MCP servers:
+
 
 • **time-mcp** — returns system time  
 • **pwsh-mcp** — executes PowerShell commands
@@ -254,35 +283,36 @@ Modify [time-mcp.yaml](../.continue/mcpServers/time-mcp.yaml) and [pwsh-mcp.yaml
 
 ![alt text](image-11.png)
 
-## Tool invocation examples
+### Tool invocation examples
 
 Once the MCP servers are configured, you can try to invoke prompts, rules and MCP tools from the Continue chat interface.
 
-
-### First prompt example
-Choose mode to "Agent" and write "get current date" prompt. The AI should request approval and then respond with the current system time returned by the time-mcp server (if approval is granted):
+#### First prompt example
+Choose mode to "Agent" and write "get current date" prompt. The AI should request approval:
 
 ![alt text](image-15.png)
 
-As a result should see the current system time returned by the time-mcp server:
+If approval is granted, you should get the current system time returned by the time-mcp server:
+
 ![alt text](image-16.png)
 
-### Second try
+#### Second try
 
 Now try to get current date using Powershell MCP instead of time-mcp:
 
 ![alt text](image-4.png)
 
-### Third try
+#### Third try
 
 Now try to request to write a PowerShell script that stores current date, OS and IP (should use pwsh-mcp server and follow PowerShell scripting conventions defined in the powershell rule):
 
 ![alt text](image-7.png)
 
 Now write in chat /reddit (this will invoke reddit prompt) and ask to write a Reddit post about the PowerShell script you just created:
+
 ![alt text](image-8.png)
 
-## Summary
+### Summary
 
 In this tutorial you learned how to configure and extend the Continue AI assistant.
 
