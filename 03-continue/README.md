@@ -2,6 +2,8 @@
 
 ![AI 101 Course Logo](../logo.png)
 
+## Introduction
+
 In this tutorial we continue exploring how AI can be integrated into the development workflow inside VS Code.
 So far we focused mainly on interacting with the AI through individual prompts.
 
